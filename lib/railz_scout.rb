@@ -2,7 +2,7 @@ require 'net/http'
 require 'pathname'
 
 # Copyright (c) 2008 Caio Chassot
-# with parts from Exception Notification plugin, Copyright (c) 2005 Jamis Buck
+# with parts from Exception Notifier plugin, Copyright (c) 2005 Jamis Buck
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
