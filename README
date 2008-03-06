@@ -1,13 +1,68 @@
 RailzScout
 ==========
 
-Introduction goes here.
+The RailzScout plugin implements FogBugz's BugzScout system for Rails apps.
+It works by submitting your bugs to your FogBugz installation directly via 
+HTTP post.
+
+The plugin is based on the Exception Notifier plugin by Jamis Buck. Much 
+works the same, but email code has been replaced with code that posts to
+scoutSubmit in your FogBugz installation.
 
 
-Example
-=======
+Usage
+=====
 
-Example goes here.
+1.  Include the ExceptionNotifiable mixin in whichever controller you want to
+    report errors to FogBugz. (ApplicationController for the whole app.):
+
+      class ApplicationController < ActionController::Base
+        include ExceptionNotifiable
+        …
+
+2.  If you installed the plugin via default methods, you should find a 
+    railz_scout.rb file in your app's config/initializers/ directory.
+    (Otherwise, create the file or just edit environment.rb.)
+    You should see something like this:
+    
+      RAILZ_SCOUT_CONFIG = {
+        :url       => "http://example.com/FogBugz/scoutSubmit.php",
+      # :username  => 'RailzScout',
+      # :project   => 'Inbox',
+      # :area      => 'Undecided',
+      # :force_new => false,
+      }
+
+      RailzScout.config.merge! RAILZ_SCOUT_CONFIG
+
+   
 
 
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
+
+Customizations
+==============
+
+The rendering code from Exception Notifier has barely been touched. Therefore,
+the same customizations that apply to the original plugin should apply here.
+
+For more info, see their original README, included with this copy.
+
+
+
+
+
+
+# :title / Description
+# If the description field matches exactly to any other bug, this submission
+# will be APPENDED to that bug's history, and a new bug will NOT be created.
+# The occurrences field for this bug will increase by 1.
+
+# force_new / ForceNewBug
+# force FogBUGZ to create a new bug for this entry, instead of appending to
+# bug with matching description
+
+
+
+
+Copyright (c) 2008 Caio Chassot, released under the MIT license
+with parts from Exception Notifier plugin, Copyright (c) 2005 Jamis Buck, released under the MIT license
