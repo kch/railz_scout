@@ -1,4 +1,7 @@
 RAILZ_SCOUT_CONFIG = {
+  # Set this to the URL of your FogBugz installation. 
+  # the scoutSubmit script is part of your installation. For Windows setups
+  # it has an extension of .asp, for Mac/Unix setups, .php.
   :url => "http://example.com/FogBugz/scoutSubmit.php",
 
   # The following are the defaults already, uncomment and change as you need
