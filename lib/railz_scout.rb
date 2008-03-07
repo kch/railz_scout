@@ -31,7 +31,7 @@ module RailzScout
     :url       => nil,
     :username  => 'RailzScout',
     :project   => 'Inbox',
-    :area      => 'Undecided',
+    :area      => 'Misc',
     :title     => nil,
     :body      => nil,
     :email     => nil,

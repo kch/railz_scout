@@ -29,7 +29,7 @@ Usage
         :url       => "http://example.com/FogBugz/scoutSubmit.php",
       # :username  => 'RailzScout',
       # :project   => 'Inbox',
-      # :area      => 'Undecided',
+      # :area      => 'Misc',
       # :force_new => false,
       }
 
@@ -46,20 +46,6 @@ The rendering code from Exception Notifier has barely been touched. Therefore,
 the same customizations that apply to the original plugin should apply here.
 
 For more info, see their original README, included with this copy.
-
-
-
-
-
-
-# :title / Description
-# If the description field matches exactly to any other bug, this submission
-# will be APPENDED to that bug's history, and a new bug will NOT be created.
-# The occurrences field for this bug will increase by 1.
-
-# force_new / ForceNewBug
-# force FogBUGZ to create a new bug for this entry, instead of appending to
-# bug with matching description
 
 
 
