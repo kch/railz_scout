@@ -73,7 +73,7 @@ module RailzScout
   
   def render(assigns)
     view_path = Pathname.new("#{File.dirname(__FILE__)}/../views").cleanpath.to_s
-    ActionView::TemplateFinder.process_view_paths(view_path)
+    ActionView::TemplateFinder.process_view_paths(view_path) if defined? ActionView::TemplateFinder
     view = ActionView::Base.new([view_path], assigns, self)
     view.extend ExceptionNotifierHelper
     view.render "exception_notifier/exception_notification"
