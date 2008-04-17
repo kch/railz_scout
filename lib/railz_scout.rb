@@ -36,6 +36,8 @@ module RailzScout
     :body      => nil,
     :email     => nil,
     :force_new => false,
+    :ignore_exceptions => [ActiveRecord::RecordNotFound, ActionController::RoutingError, 
+                           ActionController::UnknownController, ActionController::UnknownAction]
   }
   
   mattr_accessor :sections

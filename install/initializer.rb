@@ -12,22 +12,31 @@ RAILZ_SCOUT_CONFIG = {
   
   # An existing area within the project in FogBugz. Misc is the default for 
   # every app, but you might want to have one area specifically for 
-  # RailzScout reports
+  # RailzScout reports.
   # :area => 'Misc',
 
   # Username: The name of a user in your FogBugz installation. We recommend
-  # You create a virtual user named RailzScout so you know which cases were
+  # you create a virtual user named RailzScout so you know which cases were
   # automatically submitted.
   # :username => 'RailzScout',
   
-  # This is the email address of the correspond, AKA the user who reported
+  # This is the email address of the correspondent, AKA the user who reported
   # the bug. You should probably leave this nil unless you implement some
   # functionality for the user to comment on the bug he experienced.
   # :email => nil,
   
-  # force FogBugz to always create a new bug, instead of appending to an
+  # Force FogBugz to always create a new bug, instead of appending to an
   # existing bug with identical title.
   # :force_new => false,
+  
+  # For the following exceptions, do not post to FogBugz, just render 404.
+  # Setting exceptions here override the defaults, they are not appended.
+  # :ignore_exceptions => [
+  #   ActiveRecord::RecordNotFound, 
+  #   ActionController::RoutingError,
+  #   ActionController::UnknownController, 
+  #   ActionController::UnknownAction,
+  # ]
 }
 
 RailzScout.config.merge! RAILZ_SCOUT_CONFIG
