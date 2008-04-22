@@ -36,6 +36,7 @@ RAILZ_SCOUT_CONFIG = {
   #   ActionController::RoutingError,
   #   ActionController::UnknownController, 
   #   ActionController::UnknownAction,
+  #   CGI::Session::CookieStore::TamperedWithCookie,
   # ]
 }
 
