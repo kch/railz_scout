@@ -40,8 +40,8 @@ module RailzScout
                             ActionController::RoutingError, 
                             ActionController::UnknownController, 
                             ActionController::UnknownAction,
-                            CGI::Session::CookieStore::TamperedWithCookie,
-                          ]
+                            (CGI::Session::CookieStore::TamperedWithCookie if defined? CGI::Session::CookieStore::TamperedWithCookie),
+                          ].compact
   }
   
   mattr_accessor :sections
