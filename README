@@ -16,26 +16,34 @@ Usage
 1.  Include the ExceptionNotifiable mixin in whichever controller you want to
     report errors to FogBugz. (ApplicationController for the whole app.):
 
-      class ApplicationController < ActionController::Base
-        include ExceptionNotifiable
-        …
+        class ApplicationController < ActionController::Base
+          include ExceptionNotifiable
+          …
 
 2.  If you installed the plugin via default methods, you should find a 
     railz_scout.rb file in your app's config/initializers/ directory.
-    (Otherwise, create the file or just edit environment.rb.)
-    You should see something like this:
+    If not, you can still run the install script manually to create
+    the initializer:
+
+        $ ruby vendor/plugins/railz_scout/install.rb
     
-      RAILZ_SCOUT_CONFIG = {
-        :url       => "http://example.com/FogBugz/scoutSubmit.php",
-      # :username  => 'RailzScout',
-      # :project   => 'Inbox',
-      # :area      => 'Misc',
-      # :force_new => false,
-      }
+    Open the initializer railz_scout.rb and edit the configuration options
+    there. The file if fully commented with detailed explanations of what each
+    options means.
+    
+    At the very least you need to set the URL for your FogBugz installation.
 
-      RailzScout.config.merge! RAILZ_SCOUT_CONFIG
 
-   
+
+Compatibility
+=============
+
+Confirmed to work with the following Rails releases:
+
+  - 1.1.6
+  - 1.2.6
+  - 2.0.2
+  - edge @2008-04-24
 
 
 
@@ -45,10 +53,10 @@ Customizations
 The rendering code from Exception Notifier has barely been touched. Therefore,
 the same customizations that apply to the original plugin should apply here.
 
-For more info, see their original README, included with this copy.
+For more info, see their original README, included with this copy as
+README-exception_notifier
 
 
-
-
+---
 Copyright (c) 2008 Caio Chassot, released under the MIT license
 with parts from Exception Notifier plugin, Copyright (c) 2005 Jamis Buck, released under the MIT license
