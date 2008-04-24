@@ -66,7 +66,7 @@ module RailzScout
     bug_params[:body]  = render(data.merge({
       :rails_root => rails_root, 
       :controller => controller, 
-      :host       => request.env["HTTP_HOST"],
+      :host       => (request.env["HTTP_X_FORWARDED_HOST"] || request.env["HTTP_HOST"]),
       :request    => request,
       :exception  => exception, 
       :backtrace  => sanitize_backtrace(exception.backtrace),
