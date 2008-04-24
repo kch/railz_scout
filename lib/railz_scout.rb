@@ -36,10 +36,10 @@ module RailzScout
     :body      => nil,
     :email     => nil,
     :force_new => false,
-    :ignore_exceptions => [ ActiveRecord::RecordNotFound, 
-                            ActionController::RoutingError, 
-                            ActionController::UnknownController, 
-                            ActionController::UnknownAction,
+    :ignore_exceptions => [ (ActiveRecord::RecordNotFound                  if defined? ActiveRecord::RecordNotFound),
+                            (ActionController::RoutingError                if defined? ActionController::RoutingError),
+                            (ActionController::UnknownController           if defined? ActionController::UnknownController),
+                            (ActionController::UnknownAction               if defined? ActionController::UnknownAction),
                             (CGI::Session::CookieStore::TamperedWithCookie if defined? CGI::Session::CookieStore::TamperedWithCookie),
                           ].compact
   }
