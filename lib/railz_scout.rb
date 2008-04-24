@@ -74,7 +74,7 @@ module RailzScout
       :sections   => sections }))
     
     response = Net::HTTP.post_form(URI.parse(config[:url]), create_bug_form_data(bug_params))
-    raise "RailzScout post to FogBugz failed." unless response.body =~ /<Success>/
+    raise "RailzScout post to FogBugz failed: #{response.body}" unless response.body =~ /<Success>/
   end
   
   def render(assigns)
