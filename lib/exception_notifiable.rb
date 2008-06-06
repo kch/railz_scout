@@ -72,23 +72,20 @@ module ExceptionNotifiable
         type.all  { render :nothing => true, :status => "500 Error" }
       end
     end
+    
+    def extract_data_from_exception_data
+      deliverer = self.class.exception_data
+      data = case deliverer
+        when nil then {}
+        when Symbol then send(deliverer)
+        when Proc then deliverer.call(self)
+      end
+    end
 
     def rescue_action_in_public(exception)
-      case exception
-        when *self.class.exceptions_to_treat_as_404
-          render_404
+      return render_404 if self.class.exceptions_to_treat_as_404.include? exception
 
-        else          
-          render_500
-
-          deliverer = self.class.exception_data
-          data = case deliverer
-            when nil then {}
-            when Symbol then send(deliverer)
-            when Proc then deliverer.call(self)
-          end
-
-          RailzScout.submit_bug(exception, self, request, data)
-      end
+      render_500
+      RailzScout.submit_bug(exception, self, request, extract_data_from_exception_data)
     end
 end
