@@ -83,7 +83,7 @@ module ExceptionNotifiable
     end
 
     def rescue_action_in_public(exception)
-      return render_404 if self.class.exceptions_to_treat_as_404.include? exception
+      return render_404 if self.class.exceptions_to_treat_as_404.any? { |k| exception.is_a? k }
 
       render_500
       RailzScout.submit_bug(exception, self, request, extract_data_from_exception_data)
