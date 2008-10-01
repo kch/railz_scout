@@ -56,7 +56,7 @@ module RailzScout
       :Extra            => bug[:body],
       :Email            => bug[:email],
       :ForceNewBug      => (bug[:force_new] ? 1 : 0),
-      :FriendlyResponse => 0, # 1 to response in HTML, 0 as XML
+      :FriendlyResponse => 0, # 1 to respond in HTML, 0 as XML
     }
   end
   
