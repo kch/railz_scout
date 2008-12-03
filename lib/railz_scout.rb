@@ -82,7 +82,7 @@ module RailzScout
     ActionView::TemplateFinder.process_view_paths(view_path) if defined? ActionView::TemplateFinder
     view = ActionView::Base.new(view_path, assigns, self)
     view.extend ExceptionNotifierHelper
-    view.render "exception_notifier/exception_notification"
+    view.render :file => "exception_notifier/exception_notification"
   end
   
   def controller_name; "exception_notifier" end
